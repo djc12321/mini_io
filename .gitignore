@@ -1,0 +1,45 @@
+# Vivado/SDK temporary files
+.Xil/
+*.jou
+*.log
+*.str
+*.zip
+*.o
+*.dcp
+webtalk*.jou
+webtalk*.log
+
+# Vivado generated cache/output directories that can be regenerated
+mini_io.cache/
+mini_io.hw/
+mini_io.ip_user_files/
+mini_io.sim/
+mini_io.srcs/**/ipshared/
+mini_io.srcs/**/sim/
+mini_io.srcs/**/synth/
+mini_io.srcs/**/*_sim_netlist.v
+mini_io.srcs/**/*_sim_netlist.vhdl
+mini_io.srcs/**/*.dcp
+
+# Keep only the verified bitstream from implementation runs
+mini_io.runs/*
+!mini_io.runs/impl_1/
+mini_io.runs/impl_1/*
+!mini_io.runs/impl_1/design_1_wrapper.bit
+
+# SDK workspace metadata and temporary output
+mini_io.sdk/.metadata/
+mini_io.sdk/RemoteSystemsTempFiles/
+mini_io.sdk/webtalk/
+mini_io.sdk/mini_io_bsp/microblaze_0/libsrc/
+mini_io.sdk/mini_io_bsp/microblaze_0/lib/*.a
+mini_io.sdk/**/Debug/*
+!mini_io.sdk/mini_io/Debug/
+!mini_io.sdk/mini_io/Debug/mini_io_polling.elf
+!mini_io.sdk/mini_io_fast_interrupt/Debug/
+!mini_io.sdk/mini_io_fast_interrupt/Debug/mini_io_fast_interrupt.elf
+
+# Editor/local files
+.vscode/
+*.bak
+*.tmp
