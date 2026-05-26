@@ -1,5 +1,5 @@
 # Run with Xilinx SDK 2018.2:
-#   C:/Xilinx/SDK/2018.2/bin/xsct.bat sdk_rebuild.tcl
+#   <Xilinx SDK>/bin/xsct.bat sdk_rebuild.tcl
 
 set script_dir [file normalize [file dirname [info script]]]
 setws [file join $script_dir mini_io.sdk]

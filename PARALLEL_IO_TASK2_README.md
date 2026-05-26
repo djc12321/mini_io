@@ -1,6 +1,8 @@
 # 并行 IO 实验任务 2 说明
 
-本工程面向 Vivado/SDK 2018.2 + MicroBlaze + Nexys4 DDR。现在已经补齐开关、按键、LED 的 AXI GPIO 连接，并提供两份软件：
+本工程面向 Vivado/SDK 2018.2 + MicroBlaze + Nexys4 DDR，完成“独立开关/按键输入，LED 输出”的并行 IO 实验任务 2。
+
+工程包含两份软件实现：
 
 - 程序控制方式：`mini_io.sdk/mini_io/src/main.c`
 - 快速中断方式：`mini_io.sdk/mini_io_fast_interrupt/src/main.c`
@@ -24,13 +26,15 @@
 
 ## 板上测试
 
-开发板连接 USB-JTAG 且上电后，在 PowerShell 中二选一：
+打开 PowerShell，进入仓库根目录后运行：
 
 ```powershell
-cd D:\file\github_pro\mini_io
-C:\Xilinx\SDK\2018.2\bin\xsct.bat xsct_download_polling.tcl
-C:\Xilinx\SDK\2018.2\bin\xsct.bat xsct_download_fast_interrupt.tcl
+cd <repo root>
+<Xilinx SDK>\bin\xsct.bat xsct_download_polling.tcl
+<Xilinx SDK>\bin\xsct.bat xsct_download_fast_interrupt.tcl
 ```
+
+如果 SDK 安装在默认位置，则 `<Xilinx SDK>` 通常是 `C:\Xilinx\SDK\2018.2`。
 
 测试流程：
 

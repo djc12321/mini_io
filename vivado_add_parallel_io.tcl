@@ -1,5 +1,5 @@
 # Run in Vivado Tcl Console:
-#   cd D:/file/github_pro/mini_io
+#   cd <repo root>
 #   source vivado_add_parallel_io.tcl
 
 set script_dir [file normalize [file dirname [info script]]]

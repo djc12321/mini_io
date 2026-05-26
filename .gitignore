@@ -19,6 +19,8 @@ mini_io.srcs/**/sim/
 mini_io.srcs/**/synth/
 mini_io.srcs/**/*_sim_netlist.v
 mini_io.srcs/**/*_sim_netlist.vhdl
+mini_io.srcs/**/*_stub.v
+mini_io.srcs/**/*_stub.vhdl
 mini_io.srcs/**/*.dcp
 
 # Keep only the verified bitstream from implementation runs

@@ -1,13 +1,25 @@
 $ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Gcc = "C:\Xilinx\SDK\2018.2\gnu\microblaze\nt\bin\mb-gcc.exe"
-$Size = "C:\Xilinx\SDK\2018.2\gnu\microblaze\nt\bin\mb-size.exe"
+$SdkRoot = $env:XILINX_SDK
+if ([string]::IsNullOrWhiteSpace($SdkRoot)) {
+    $SdkRoot = "C:\Xilinx\SDK\2018.2"
+}
+
+$Gcc = Join-Path $SdkRoot "gnu\microblaze\nt\bin\mb-gcc.exe"
+$Size = Join-Path $SdkRoot "gnu\microblaze\nt\bin\mb-size.exe"
 $Bsp = Join-Path $Root "mini_io.sdk\mini_io_bsp\microblaze_0"
 $Include = Join-Path $Bsp "include"
 $LibXil = Join-Path $Bsp "lib\libxil.a"
 $LibGloss = Join-Path $Bsp "lib\libgloss.a"
 $Linker = Join-Path $Root "mini_io.sdk\mini_io\src\lscript.ld"
+
+if (!(Test-Path -LiteralPath $Gcc)) {
+    throw "Cannot find mb-gcc.exe. Set XILINX_SDK to your SDK 2018.2 path, for example C:\Xilinx\SDK\2018.2."
+}
+if (!(Test-Path -LiteralPath $LibXil)) {
+    throw "Cannot find libxil.a. Rebuild mini_io_bsp in SDK first, or run sdk_rebuild.tcl after closing SDK."
+}
 
 New-Item -ItemType Directory -Force -Path (Join-Path $Root "mini_io.sdk\mini_io\Debug") | Out-Null
 New-Item -ItemType Directory -Force -Path (Join-Path $Root "mini_io.sdk\mini_io_fast_interrupt\Debug") | Out-Null
